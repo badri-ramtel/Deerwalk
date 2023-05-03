@@ -19,7 +19,6 @@ class Course(models.Model):
     
     class Meta:
         db_table = 'Course'
-        verbose_name_plural = 'Courses'
 
 
 

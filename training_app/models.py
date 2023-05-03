@@ -2,6 +2,27 @@ from django.db import models
 from django.core.validators import MinLengthValidator
 
 # Create your models here.
+LEVEL = [
+    ('B', 'Beginner'),
+    ('I', 'Intermediate'),
+    ('A', 'Advance')
+]
+class Course(models.Model):
+    title = models.CharField(max_length=25)
+    description = models.TextField(null=True, blank=True, default='N/A')
+    duration = models.DecimalField(max_digits=2, decimal_places=1)
+    price = models.DecimalField(max_digits=6, decimal_places=0)
+    level = models.CharField(max_length=1, choices=LEVEL, default='B')
+
+    def __str__(self):
+        return f'{self.title}'
+    
+    class Meta:
+        db_table = 'Course'
+        verbose_name_plural = 'Courses'
+
+
+
 class Instructor(models.Model):
     first_name = models.CharField(max_length=35)
     last_name = models.CharField(max_length=35)
@@ -33,12 +54,7 @@ class UpcomingClass(models.Model):
         db_table = 'UpcomingClass'
         verbose_name_plural = 'UpcomingClasses'
 
-class Course(models.Model):
-    title = models.CharField(max_length=25)
-    description = models.CharField(max_length=50)
-    duration = models.CharField(max_length=50)
-    price = models.BigIntegerField()
-    level = models.CharField(max_length=1)
+
     
 # class instructor(models.Model):
 #     first_name = models.CharField(max_length=25)

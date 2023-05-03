@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Training application {% endblock title %}
+
+{% block heading %}
+
+{% for class in classes %}
+    <div>
+        {{class.title}}
+        {{class.duration}}
+        {{class.price}}
+        {{class.start_date}}
+        {{class.time}}
+        {{class.instructor.first_name}} {{class.instructor.last_name}}
+    </div>
+{%endfor%}
+
+{% endblock heading %}

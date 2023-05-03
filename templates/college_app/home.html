@@ -1,0 +1,10 @@
+{% extends 'core/base.html' %}
+
+{% block title %} college Homepage {% endblock title %}
+
+{% block heading %} 
+    <h1>I am home page of college app</h1> 
+    {% for name in names %}
+        {{names}}
+    {% endfor %}
+{% endblock heading %}

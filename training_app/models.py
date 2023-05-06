@@ -7,7 +7,7 @@ LEVEL = [
     ('I', 'Intermediate'),
     ('A', 'Advance')
 ]
-class Course(models.Model):
+class Courses(models.Model):
     title = models.CharField(max_length=25)
     description = models.TextField(null=True, blank=True, default='N/A')
     duration = models.DecimalField(max_digits=2, decimal_places=1)
@@ -18,7 +18,7 @@ class Course(models.Model):
         return f'{self.title}'
     
     class Meta:
-        db_table = 'Course'
+        db_table = 'courses'
 
 
 
@@ -52,6 +52,11 @@ class UpcomingClass(models.Model):
     class Meta:
         db_table = 'UpcomingClass'
         verbose_name_plural = 'UpcomingClasses'
+
+
+class delete(models.Model):
+    pass
+    
 
 
     
